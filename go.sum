@@ -1,0 +1,4 @@
+github.com/facebookgo/pqueue v0.0.0-20150616181853-370201431265 h1:6f5Pr1Y+oRgCygGbWIdP6Ce63lSrcBCYJmvvLJu8n3g=
+github.com/facebookgo/pqueue v0.0.0-20150616181853-370201431265/go.mod h1:rz1aRei3AZ/7KTGA3QryLnbwZb5kI3wlcMKI0HM/buA=
+github.com/jupp0r/go-priority-queue v0.0.0-20160601094913-ab1073853bde h1:+5PMaaQtDUwOcJIUlmX89P0J3iwTvErTmyn5WghzXAQ=
+github.com/jupp0r/go-priority-queue v0.0.0-20160601094913-ab1073853bde/go.mod h1:RDgD/dfPmIwFH0qdUOjw71HjtWg56CtyLIoHL+R1wJw=
