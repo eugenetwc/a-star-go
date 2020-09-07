@@ -1,6 +1,7 @@
-package main
+package astar
 
 import (
+	"C"
 	"container/heap"
 	"math"
 )

@@ -1,8 +1,8 @@
-module github.com/eugenetwc/a-star-go
+module astar
 
 go 1.15
 
 require (
-	github.com/facebookgo/pqueue v0.0.0-20150616181853-370201431265
-	github.com/jupp0r/go-priority-queue v0.0.0-20160601094913-ab1073853bde
+	github.com/go-python/gopy v0.3.1
+	golang.org/x/tools v0.0.0-20200903185744-af4cc2cd812e // indirect
 )

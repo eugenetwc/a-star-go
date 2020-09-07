@@ -1,6 +1,7 @@
-package main
+package astar 
 
 import (
+	"time"
 	"fmt"
 )
 
@@ -11,6 +12,14 @@ func main() {
 		{1, 1, 0, 1, 1, 0},
 		{2, 0, 0, 0, 0, 0},
 	}
-	test := AStar(coordMap)
-	fmt.Println(test)
+
+	var path []Location
+	start := time.Now()
+	for i := 0; i < 1000; i++ {
+		path = AStar(coordMap)
+	}
+	t := time.Now()
+	elapsed := t.Sub(start)
+	fmt.Println("solution:", path)
+	fmt.Println("time elapsed:", elapsed)
 }
