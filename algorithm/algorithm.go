@@ -1,7 +1,6 @@
-package astar
+package algorithm
 
 import (
-	"C"
 	"container/heap"
 	"math"
 )

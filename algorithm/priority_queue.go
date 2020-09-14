@@ -1,5 +1,5 @@
 //https://golang.org/pkg/container/heap
-package astar
+package algorithm
 
 type priorityQueue []*node
 
