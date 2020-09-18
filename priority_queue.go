@@ -1,5 +1,4 @@
-//https://golang.org/pkg/container/heap
-package algorithm
+package main
 
 type priorityQueue []*node
 
@@ -32,5 +31,5 @@ func (pq *priorityQueue) Pop() interface{} {
 	old[n-1] = nil  // avoid memory leak
 	node.index = -1 // for safety
 	*pq = old[0 : n-1]
-	return node 
+	return node
 }

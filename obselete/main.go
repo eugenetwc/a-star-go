@@ -1,9 +1,8 @@
 package main
 
 import (
-	"time"
 	"fmt"
-	"github.com/eugenetwc/astar_go/algorithm"
+	"time"
 )
 
 func main() {
@@ -14,10 +13,10 @@ func main() {
 		{2, 0, 0, 0, 0, 0},
 	}
 
-	var path []algorithm.Location
+	var path []Location
 	start := time.Now()
 	for i := 0; i < 1000; i++ {
-		path = algorithm.AStar(coordMap)
+		path = AStar(coordMap)
 	}
 	t := time.Now()
 	elapsed := t.Sub(start)

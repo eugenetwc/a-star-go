@@ -1,4 +1,6 @@
-package algorithm
+package main
+
+import "C"
 
 import (
 	"container/heap"
@@ -13,19 +15,20 @@ type Location struct {
 
 // Node is potential position within grid
 type node struct {
-	parent *node
+	parent   *node
 	position Location
-	f, g, h int
-	index int
+	f, g, h  int
+	index    int
 }
 
 // AStar function
+//export AStar
 func AStar(coordMap [][]int) []Location {
 	var startPos, goalPos Location
 	// find start and end points
 	for y, row := range coordMap {
 		for x, val := range row {
-			if  val == 2 { // start coord where val == 2
+			if val == 2 { // start coord where val == 2
 				startPos = Location{x, y}
 			} else if val == 3 { // end coord where val == 3
 				goalPos = Location{x, y}
@@ -42,7 +45,7 @@ func AStar(coordMap [][]int) []Location {
 	heap.Init(&open)
 	var closed []*node
 	// Push startNode into open list
-	heap.Push(&open, &startNode)	
+	heap.Push(&open, &startNode)
 
 	for open.Len() > 0 {
 		currNode := heap.Pop(&open).(*node)
@@ -75,7 +78,9 @@ func AStar(coordMap [][]int) []Location {
 					}
 				}
 			}
-			if openVisited == true {continue}
+			if openVisited == true {
+				continue
+			}
 
 			closedVisited := false
 			closedIndex := 0
@@ -85,12 +90,14 @@ func AStar(coordMap [][]int) []Location {
 						closedVisited = true
 						break
 					} else {
-						closedIndex = i	
+						closedIndex = i
 						break
 					}
 				}
 			}
-			if closedVisited == true {continue}
+			if closedVisited == true {
+				continue
+			}
 			if closedIndex != 0 {
 				closed = append(closed[closedIndex:], closed[:closedIndex+1]...)
 			}
@@ -110,15 +117,15 @@ func getNeighbours(currNode *node, coordMap [][]int) []Location {
 	mapSize := [2]int{len(coordMap[0]), len(coordMap)}
 	x, y := currNode.position.x, currNode.position.y
 	successorPos := []Location{
-		Location{x: x, y: y+1},
-		Location{x: x, y: y-1},
-		Location{x: x+1, y: y},
-		Location{x: x-1, y: y},
+		Location{x: x, y: y + 1},
+		Location{x: x, y: y - 1},
+		Location{x: x + 1, y: y},
+		Location{x: x - 1, y: y},
 	}
 
 	validPos := successorPos[:0]
 	for _, pos := range successorPos {
-		if (pos.x < mapSize[0] && pos.x >= 0 && pos.y < mapSize[1] && pos.y >= 0) {
+		if pos.x < mapSize[0] && pos.x >= 0 && pos.y < mapSize[1] && pos.y >= 0 {
 			if coordMap[pos.y][pos.x] != 1 {
 				validPos = append(validPos, pos)
 			}
@@ -127,8 +134,10 @@ func getNeighbours(currNode *node, coordMap [][]int) []Location {
 	return validPos
 }
 
-func manhattan (a, b Location) int {
+func manhattan(a, b Location) int {
 	dx := float64(a.x - b.x)
 	dy := float64(a.y - b.y)
 	return int(math.Abs(dx) + math.Abs(dy))
 }
+
+func main() {}
